@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FeedBack Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/feed1.css' %}">
+  </head>
+  <body>
+    <div class="container" align="center">
+        {% if submitted %}
+        <h1>Hello {{sname}}, thanks for providing feedback, It is very helpful for us to provide better services</h1>
+        {% else %}
+        <h1>Student Feedback Form</h1>
+        <form method="post">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <input type="submit" name="" class="btn btn-success" value="SubmitFeedback">
+        </form>
+        {% endif %}
+      </div>
+  </body>
+</html>
